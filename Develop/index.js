@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
  //variable holding markdown file
- const markDown = require('./utils/generateMarkdown');
+ const generateMarkdown = require('./utils/generateMarkdown');
 
 // array of questions for user
 const questions = () => {
@@ -62,8 +62,15 @@ const questions = () => {
         {
             type: "input",
             name: "installation",
-            message: "What command should be run to install dependencies? (Required)",
-            default:"npm i"
+            message: "What are the steps required to install your project? (Required)",
+            validate: (nameInput) => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please provide steps required to install project!");
+                    return false;
+                }
+            }
         },
         {
             type: "input",
@@ -81,8 +88,8 @@ const questions = () => {
         {
             type: "checkbox",
             name: "license",
-            message: "What kind of license should your project have (Select 1)",
-            choices: ["NPM", "Github", "MIT", "None"]
+            message: "What kind of license should your project have (Required)",
+            choices: ["NPM", "Github", "MIT", "APACHE-2.0", "None"],
         },
         {
             type: "input",
@@ -92,7 +99,7 @@ const questions = () => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please provide contributoin guidelines!")
+                    console.log("Please provide contribution guidelines!")
                     return false;
                 }
             }
@@ -100,8 +107,16 @@ const questions = () => {
         {
             type: "input",
             name: "tests",
-            message: "What command should be run to run tests?",
-            default: "npm test"
+            message: "Provide examples on how to run tests for your application (Required)",
+            default: "npm test",
+            validate: (nameInput) => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please provide test examples on how to run your app!")
+                    return false;
+                }
+            }
         }
     ]);
 };
@@ -109,7 +124,7 @@ const questions = () => {
 // function to write README file
 // need to update
 function writeFile(fileName, data) {
-    fs.writeFile('../README.md', data, (err) => {
+    fs.writeFile('../projectREADME.md', data, (err) => {
         if (err) {
             console.log(err)
             return;
@@ -121,7 +136,7 @@ function writeFile(fileName, data) {
 
 // function to initialize program
 function init() {
-    questions().then(answers => writeFile("README.md", markDown(answers))
+    questions().then(answers => writeFile("projectREADME.md", generateMarkdown(answers))
     );
 
 }
