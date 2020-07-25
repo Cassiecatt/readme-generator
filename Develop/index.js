@@ -96,6 +96,7 @@ const questions = () => {
         }
     ]);
 };
+questions().then(answers => console.log(answers));
 
 // function to write README file
 function writeToFile(fileName, data) {
