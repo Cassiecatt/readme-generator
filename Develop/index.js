@@ -122,7 +122,6 @@ const questions = () => {
 };
 
 // function to write README file
-// need to update
 function writeFile(fileName, data) {
     fs.writeFile('../projectREADME.md', data, (err) => {
         if (err) {
