@@ -2,12 +2,15 @@
 function generateMarkdown(data) {
   return `
   # ${data.title}
+  [License](https://img.shields.io/badge/license-${data.license}-blue.svg)
   ## Description
   ${data.description}
   ## Table of Contents
-  //[here](# ${data.description})
-  //add jump links for each section
-  // example * [Installation](#installation) ?
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
   ## Installation
   ${data.installation}
   ## Usage

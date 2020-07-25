@@ -36,15 +36,8 @@ const questions = () => {
         {
             type: "input",
             name: "installation",
-            message: "What are the steps required to install your project? (Required)",
-            validate: (nameInput) => {
-                if (nameInput) {
-                    return true;
-                } else {
-                    console.log("Provide steps required to install project!");
-                    return false;
-                }
-            }
+            message: "What command should be run to install dependencies? (Required)",
+            default:"npm i"
         },
         {
             type: "input",
@@ -63,7 +56,7 @@ const questions = () => {
             type: "checkbox",
             name: "license",
             message: "What kind of license should your project have (Required)",
-            choices: ["NPM", "Github", "None"]
+            choices: ["NPM", "Github", "MIT", "None"]
         },
         {
             type: "input",
@@ -81,15 +74,8 @@ const questions = () => {
         {
             type: "input",
             name: "tests",
-            message: "Provide tests for your application and examples on how to run them (Required)",
-            validate: (nameInput) => {
-                if (nameInput) {
-                    return true;
-                } else {
-                    console.log("Please provide tests for your application")
-                    return false;
-                }
-            }
+            message: "What command should be run to run tests?",
+            default: "npm test"
         }
     ]);
 };
