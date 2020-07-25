@@ -1,3 +1,7 @@
-# Professional README Generator Starter Code
+# README Generator
+ 
+ ## Description
+A command line application that generates a README.md based off user input
 
-[How to create a Professional README](./readme-guide.md)
+## Screenshot
+![Screenshot of final result from application](https://cassiecatt.github.io/readme-generator/assets/readme-result.png)
