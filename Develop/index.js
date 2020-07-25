@@ -9,6 +9,32 @@ const questions = () => {
     return inquirer.prompt ([
         {
             type: "input",
+            name: "github",
+            message: "What is your Github username? (Required)",
+            validate: (nameInput) => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your Github username!");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your email address? (Required)",
+            validate: (nameInput) => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your email address!");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
             name: "title",
             message: "What is your project's name? (Required)",
             validate: (nameInput) => {
@@ -55,7 +81,7 @@ const questions = () => {
         {
             type: "checkbox",
             name: "license",
-            message: "What kind of license should your project have (Required)",
+            message: "What kind of license should your project have (Select 1)",
             choices: ["NPM", "Github", "MIT", "None"]
         },
         {
