@@ -89,7 +89,7 @@ const questions = () => {
             type: "checkbox",
             name: "license",
             message: "What kind of license should your project have (Required)",
-            choices: ["NPM", "Github", "MIT", "APACHE-2.0", "None"],
+            choices: ["NPM", "Github", "MIT", "APACHE", "None"],
         },
         {
             type: "input",
